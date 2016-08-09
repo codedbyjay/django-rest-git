@@ -6,9 +6,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "django-rest-git"
   config.vm.network "forwarded_port", guest: 8000, host: 8080, auto_correct: true
-  # To facilitate the NFS share
-  config.vm.network "private_network", type: "dhcp"
-  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+  # config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "768"
