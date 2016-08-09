@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from rest_git.models import Repository
+
+admin.site.register(Repository)

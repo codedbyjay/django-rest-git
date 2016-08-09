@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from rest_git.views import *
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/v1/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/v1/repositories/$', RepositoryList.as_view()), 
+    url(r'^api/v1/repository/(?P<pk>[0-9]+)/$', RepositoryDetail.as_view()),
+    url(r'^api/v1/repository/(?P<pk>[0-9]+)/commits/$', CommitList.as_view()), 
+
 ]
